@@ -1,5 +1,6 @@
 import React from "react";
 import { FaHeart, FaShoppingBag, FaUser } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
@@ -53,18 +54,17 @@ function Navbar() {
           </ul>
 
           <div className="d-flex align-items-center gap-4 luxury-icons">
-            <a href="/wishlist" className="icon-btn">
+            <Link to="/wishlist" className="icon-btn">
               <FaHeart />
-            </a>
+            </Link>
 
-            <a href="/cart" className="icon-btn position-relative">
+            <Link to="/cart" className="icon-btn">
               <FaShoppingBag />
-              <span className="cart-count"></span>
-            </a>
+            </Link>
 
-            <a href="/login" className="icon-btn">
+            <Link to="/login" className="icon-btn">
               <FaUser />
-            </a>
+            </Link>
           </div>
         </div>
 
