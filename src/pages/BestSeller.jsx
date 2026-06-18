@@ -1,7 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
-// यहाँ डेटा फिक्स कर दिया है, हर प्रोडक्ट की अपनी ही इमेज का एरे है
 export const products = [
   {
     id: 1,
