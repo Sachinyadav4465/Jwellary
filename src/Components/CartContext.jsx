@@ -20,7 +20,7 @@ export const CartProvider = ({ children }) => {
       return [...prevCart, { ...product, quantity }];
     });
 
-    toast.success(`${product.title} added to cart! 🛍️`);
+    toast.success(`${product.title} added to cart! `);
   };
 
   const removeFromCart = (id) => {
