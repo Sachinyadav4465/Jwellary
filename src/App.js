@@ -9,10 +9,12 @@ import Cart from "./pages/Cart";
  import Wishlist from "./pages/Wishlist";
  import WhatsappIcon from "./Components/WhatsappIcon";
  import ProductDetails from "./pages/ProductDetails";
+ import ScrollToTop from "./Components/ScrollToTop";
 
 function App() {
   return (
     <BrowserRouter>
+    <ScrollToTop/>
 <Navbar/>
     <Routes>
       <Route path="/" element={<Home />} />
