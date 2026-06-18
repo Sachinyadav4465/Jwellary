@@ -1,54 +1,24 @@
-import React, { useState } from "react";
-
+import React from "react";
+import { Link } from "react-router-dom";
+import { useCart } from "../Components/CartContext";
 
 function Cart() {
-  const [cartItems, setCartItems] = useState([
-    {
-      id: 1,
-      name: "Diamond Solitaire Ring",
-      price: 45999,
-      qty: 1,
-      image:
-        "https://images.unsplash.com/photo-1617038220319-276d3cfab638?w=500",
-    },
-    {
-      id: 2,
-      name: "Gold Bridal Necklace",
-      price: 89999,
-      qty: 2,
-      image:
-        "https://images.unsplash.com/photo-1611085583191-a3b181a88401?w=500",
-    },
-  ]);
+  const { cart, addToCart, removeFromCart } = useCart();
 
-  const increaseQty = (id) => {
-    setCartItems((prev) =>
-      prev.map((item) =>
-        item.id === id
-          ? { ...item, qty: item.qty + 1 }
-          : item
-      )
-    );
+  const increaseQty = (item) => {
+    addToCart(item, 1);
   };
 
-  const decreaseQty = (id) => {
-    setCartItems((prev) =>
-      prev.map((item) =>
-        item.id === id && item.qty > 1
-          ? { ...item, qty: item.qty - 1 }
-          : item
-      )
-    );
+  const decreaseQty = (item) => {
+    if (item.quantity > 1) {
+      addToCart(item, -1);
+    } else {
+      removeFromCart(item.id);
+    }
   };
 
-  const removeItem = (id) => {
-    setCartItems((prev) =>
-      prev.filter((item) => item.id !== id)
-    );
-  };
-
-  const subtotal = cartItems.reduce(
-    (total, item) => total + item.price * item.qty,
+  const subtotal = cart.reduce(
+    (total, item) => total + item.price * item.quantity,
     0
   );
 
@@ -57,52 +27,45 @@ function Cart() {
       <div className="container">
         <h1 className="cart-title">Shopping Cart</h1>
 
-        {cartItems.length === 0 ? (
-          <div className="empty-cart">
+        {cart.length === 0 ? (
+          <div className="empty-cart text-center py-5">
             <h3>Your Cart is Empty</h3>
             <p>Add some beautiful jewellery to continue shopping.</p>
+            <Link to="/" className="btn btn-gold mt-3">
+              Go to Shop
+            </Link>
           </div>
         ) : (
           <div className="row g-4">
             <div className="col-lg-8">
-              {cartItems.map((item) => (
+              {cart.map((item) => (
                 <div className="cart-card" key={item.id}>
                   <img
-                    src={item.image}
-                    alt={item.name}
+                    src={item.images ? item.images[0] : item.image}
+                    alt={item.title}
                     className="cart-image"
                   />
 
                   <div className="cart-details">
-                    <h4>{item.name}</h4>
+                    <h4>{item.title}</h4>
+                    <p className="text-muted small mb-2">{item.subtitle}</p>
 
                     <div className="cart-qty">
-                      <button
-                        onClick={() => decreaseQty(item.id)}
-                      >
-                        -
-                      </button>
-
-                      <span>{item.qty}</span>
-
-                      <button
-                        onClick={() => increaseQty(item.id)}
-                      >
-                        +
-                      </button>
+                      <button onClick={() => decreaseQty(item)}>-</button>
+                      <span>{item.quantity}</span>
+                      <button onClick={() => increaseQty(item)}>+</button>
                     </div>
 
                     <button
-                      className="remove-btn"
-                      onClick={() => removeItem(item.id)}
+                      className="remove-btn mt-2"
+                      onClick={() => removeFromCart(item.id)}
                     >
                       Remove
                     </button>
                   </div>
 
                   <div className="cart-price">
-                    ₹
-                    {(item.price * item.qty).toLocaleString()}
+                    ₹{(item.price * item.quantity).toLocaleString()}
                   </div>
                 </div>
               ))}
@@ -113,27 +76,23 @@ function Cart() {
                 <h3>Order Summary</h3>
 
                 <div className="summary-row">
-                  <span>Items</span>
-                  <span>{cartItems.length}</span>
+                  <span>Unique Items</span>
+                  <span>{cart.length}</span>
                 </div>
 
                 <div className="summary-row">
                   <span>Subtotal</span>
-                  <span>
-                    ₹{subtotal.toLocaleString()}
-                  </span>
+                  <span>₹{subtotal.toLocaleString()}</span>
                 </div>
 
                 <div className="summary-row">
                   <span>Shipping</span>
-                  <span>Free</span>
+                  <span className="text-success fw-bold">Free</span>
                 </div>
 
                 <div className="summary-row total">
                   <span>Total</span>
-                  <span>
-                    ₹{subtotal.toLocaleString()}
-                  </span>
+                  <span>₹{subtotal.toLocaleString()}</span>
                 </div>
 
                 <button className="checkout-btn">

@@ -1,14 +1,19 @@
 import React from "react";
-import { FaHeart, FaShoppingBag, FaUser } from "react-icons/fa";
+import { FaGem, FaHeart, FaShoppingBag, FaUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { useCart } from "../Components/CartContext";
 
 function Navbar() {
+  const { cart } = useCart();
+  const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+
   return (
     <nav className="navbar navbar-expand-lg luxury-navbar">
       <div className="container">
 
         <a className="navbar-brand luxury-logo" href="/">
-          AETERNITAS
+          <FaGem className="brand-icon" />
+          Aeternitas
         </a>
 
         <button
@@ -58,8 +63,13 @@ function Navbar() {
               <FaHeart />
             </Link>
 
-            <Link to="/cart" className="icon-btn">
+            <Link to="/cart" className="icon-btn position-relative">
               <FaShoppingBag />
+              {totalItems > 0 && (
+                <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style={{ fontSize: "0.65rem", padding: "0.25em 0.45em" }}>
+                  {totalItems}
+                </span>
+              )}
             </Link>
 
             <Link to="/login" className="icon-btn">

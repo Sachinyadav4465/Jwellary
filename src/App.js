@@ -7,6 +7,8 @@ import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
 import Cart from "./pages/Cart";
  import Wishlist from "./pages/Wishlist";
+ import WhatsappIcon from "./Components/WhatsappIcon";
+ import ProductDetails from "./pages/ProductDetails";
 
 function App() {
   return (
@@ -18,8 +20,11 @@ function App() {
       <Route path="/signup" element={<Signup/>}/>
       <Route path="/cart" element={<Cart />} />
       <Route path="/wishlist" element={<Wishlist />} />
+      <Route path="/product/:id" element={<ProductDetails/>}/>
     </Routes>
     <Footer/>
+    <WhatsappIcon/>
+
     </BrowserRouter>
   );
 }

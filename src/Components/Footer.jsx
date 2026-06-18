@@ -1,58 +1,113 @@
-import React from 'react';
+import React from "react";
+import {
+  FaMapMarkerAlt,
+  FaPhoneAlt,
+  FaEnvelope,
+  FaGem,
+} from "react-icons/fa";
+import { FiSend } from "react-icons/fi";
 
 const Footer = () => {
   return (
-    <footer className="custom-footer py-5">
-      <div className="container">
-        <div className="row gy-4 align-items-start justify-content-between text-center text-md-start">
-          
-          <div className="col-12 col-md-4 footer-logo-section text-center">
-    
-            {/* <svg 
-              width="65" 
-              height="30" 
-              viewBox="0 0 100 50" 
-              fill="none" 
-              stroke="var(--text-dark)" 
-              strokeWidth="4"
-            >
-              <path d="M30 25C30 35 43 40 50 25C57 10 70 15 70 25C70 35 57 40 50 25C43 10 30 15 30 25Z" />
-            </svg> */}
-            <h1 className="footer-brand-title">Aeternitas</h1>
-          </div>
+    <>
 
-          <div className="col-12 col-sm-6 col-md-4 ps-md-5">
-            <h5 className="footer-heading">Quick Links</h5>
-            <ul className="footer-links-list">
-              <li className="footer-link-item"><a href="#about">About Us</a></li>
-              <li className="footer-link-item"><a href="#shipping">Shipping & Returns</a></li>
-              <li className="footer-link-item"><a href="#previous">Previous Links</a></li>
-              <li className="footer-link-item"><a href="#contact">Contact Us</a></li>
-            </ul>
-          </div>
+      <section className="newsletter-section">
+        <div className="newsletter-overlay">
+          <h2>Join Our Newsletter</h2>
 
+          <p>
+            Be the first to discover exclusive collections, luxury jewellery
+            launches and special member offers.
+          </p>
 
-          <div className="col-12 col-sm-6 col-md-4">
-            <h5 className="footer-heading">Customer Care</h5>
-            <ul className="footer-links-list">
-              <li className="footer-link-item"><a href="#contact-us">Contact Us</a></li>
-              <li className="footer-link-item"><a href="#support">Contact Us</a></li> 
-    
-            </ul>
-          </div>
+          <form className="newsletter-form">
+            <input
+              type="email"
+              placeholder="Enter your email address"
+            />
 
+            <button type="submit">
+              <FiSend />
+              Subscribe Now
+            </button>
+          </form>
         </div>
+      </section>
 
-    
-        <div className="row footer-bottom">
-          <div className="col-12 text-center">
-            <p className="copyright-text mb-0">
+
+      <footer className="luxury-footer">
+        <div className="container">
+          <div className="row gy-5">
+
+
+            <div className="col-lg-4 col-md-6">
+              <div className="footer-brand">
+                <FaGem className="brand-icon" />
+                <h2>Aeternitas</h2>
+              </div>
+
+              <p className="footer-description">
+                Discover timeless elegance crafted with precision and luxury.
+                Every piece tells a story of beauty, craftsmanship and heritage.
+              </p>
+            </div>
+
+
+            <div className="col-lg-2 col-md-6 col-6">
+              <h5 className="footer-title">Service</h5>
+
+              <ul className="footer-links">
+                <li><a href="/">Diamond</a></li>
+                <li><a href="/">Gold Jewellery</a></li>
+                <li><a href="/">Silver Collection</a></li>
+                <li><a href="/">New Arrivals</a></li>
+              </ul>
+            </div>
+
+
+            <div className="col-lg-2 col-md-6 col-6">
+              <h5 className="footer-title">Further Links</h5>
+
+              <ul className="footer-links">
+                <li><a href="/">Terms & Conditions</a></li>
+                <li><a href="/">Privacy Policy</a></li>
+                <li><a href="/">FAQ</a></li>
+                <li><a href="/">Support</a></li>
+              </ul>
+            </div>
+
+
+            <div className="col-lg-4 col-md-6">
+              <h5 className="footer-title">Get In Touch</h5>
+
+              <div className="contact-item">
+                <FaMapMarkerAlt />
+                <span>Lucknow, Uttar Pradesh, India</span>
+              </div>
+
+              <div className="contact-item">
+                <FaPhoneAlt />
+                <span>+91 9876543210</span>
+              </div>
+
+              <div className="contact-item">
+                <FaEnvelope />
+                <span>support@aeternitas.com</span>
+              </div>
+            </div>
+
+          </div>
+
+          <div className="footer-divider"></div>
+
+          <div className="footer-bottom">
+            <p>
               © 2026 AETERNITAS. All Rights Reserved.
             </p>
           </div>
         </div>
-      </div>
-    </footer>
+      </footer>
+    </>
   );
 };
 
