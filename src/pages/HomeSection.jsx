@@ -5,7 +5,7 @@ import BestSeller from "./BestSeller";
 import LuxuryCollections from "./LuxuryCollections";
 import StylesCollections from "./StlyesCollection";
 import Testimonials from "./Testimonials";
-import Footer from "../Components/Footer";
+
 
 const HomeSection = () => {
   return (
@@ -16,7 +16,7 @@ const HomeSection = () => {
       <LuxuryCollections/>
       <StylesCollections/>
       <Testimonials/>
-      <Footer/>
+    
     </>
   );
 };
