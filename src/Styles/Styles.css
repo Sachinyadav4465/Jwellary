@@ -76,7 +76,6 @@ body {
 .luxury-logo {
   font-size: 2rem;
   font-weight: 700;
-  /* letter-spacing: 4px; */
   color: var(--gold-dark) !important;
   text-decoration: none;
 }
@@ -245,22 +244,13 @@ body {
   border-radius:8px;
   opacity: 0;
 }
-/* .View-btn:hover{
-    opacity: 1;
-         background:var(--gold);
-  border:none;
-  color:white;
-  padding:4px;
-  border-radius:8px;
-}  */
-/* Mobile & Tablet */
+
 .view-btn {
     opacity: 1;
     transition: opacity 0.3s ease;
     border-color: #3d342d;
 }
 
-/* Desktop */
 @media (min-width: 992px) {
     .view-btn {
         opacity: 0;
@@ -334,20 +324,7 @@ body {
   }
 }
 
-/* @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&display=swap'); */
-/* 
-/* :root {
-  --primary-bg: #f8f1e7;
-  --secondary-bg: #efe3d1;
-  --gold: #b89562;
-  --gold-dark: #8f6b3e;
-  --text-dark: #3d342d;
-  --text-light: #6d6258;
-  --white: #ffffff;
-  --radius: 18px;
-  --shadow: 0 5px 15px rgba(0, 0, 0, .08);
-  --transition: all .3s ease;
-} */ 
+
 
 .testimonials-section {
   background-color: var(--primary-bg);
@@ -1140,7 +1117,6 @@ body {
   object-fit: contain;
 }
 
-/* Mobile */
 
 @media (max-width: 768px) {
 
@@ -1185,7 +1161,7 @@ body {
   margin-bottom: 20px;
 }
 
-/* Inputs */
+
 
 .checkout-card label {
   color: var(--text-dark);
@@ -1208,7 +1184,7 @@ body {
   box-shadow: 0 0 0 3px rgba(184, 149, 98, 0.12);
 }
 
-/* Payment */
+
 
 .payment-option {
   display: flex;
@@ -1232,7 +1208,6 @@ body {
   height: 18px;
 }
 
-/* Order Summary */
 
 .order-item {
   display: flex;
@@ -1275,7 +1250,6 @@ body {
   color: var(--gold-dark);
 }
 
-/* Price Rows */
 
 .price-row {
   display: flex;
@@ -1294,7 +1268,7 @@ body {
   color: var(--gold-dark);
 }
 
-/* Button */
+
 
 .place-order-btn {
   width: 100%;
