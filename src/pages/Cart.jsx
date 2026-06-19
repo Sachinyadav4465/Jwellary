@@ -94,10 +94,12 @@ function Cart() {
                   <span>Total</span>
                   <span>₹{subtotal.toLocaleString()}</span>
                 </div>
+                <Link to={"/checkout"}>
+                  <button className="checkout-btn">
 
-                <button className="checkout-btn">
-                  Proceed To Checkout
-                </button>
+                    Proceed To Checkout
+                  </button>
+                </Link>
               </div>
             </div>
           </div>

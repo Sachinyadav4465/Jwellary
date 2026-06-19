@@ -10,6 +10,7 @@ import Cart from "./pages/Cart";
  import WhatsappIcon from "./Components/WhatsappIcon";
  import ProductDetails from "./pages/ProductDetails";
  import ScrollToTop from "./Components/ScrollToTop";
+ import Checkout from "./Components/Checkout";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
       <Route path="/cart" element={<Cart />} />
       <Route path="/wishlist" element={<Wishlist />} />
       <Route path="/product/:id" element={<ProductDetails/>}/>
+      <Route path="/checkout" element={<Checkout/>}/>
     </Routes>
     <Footer/>
     <WhatsappIcon/>
